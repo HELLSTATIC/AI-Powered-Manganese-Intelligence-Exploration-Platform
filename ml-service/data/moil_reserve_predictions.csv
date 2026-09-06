@@ -1,0 +1,11 @@
+name,state,district,latitude,longitude,mn,fe,sio2,p,area,depth,current_reserve,ml_predicted_reserve_mt,delta_percent
+Dongri Buzurg Mine,Maharashtra,Bhandara,21.5321,79.7123,42.5,7.2,11.4,0.18,1450,320,12500000,1189307.0,-90.49
+Balaghat Mine,Madhya Pradesh,Balaghat,21.8152,80.1843,44.0,6.8,10.2,0.15,2100,450,24800000,2415290.0,-90.26
+Chikla Mine,Maharashtra,Bhandara,21.554,79.689,38.2,9.1,14.2,0.22,980,280,8400000,683187.0,-91.87
+Kandri Mine,Maharashtra,Nagpur,21.418,79.263,39.5,8.4,13.0,0.19,1120,310,9200000,752620.0,-91.82
+Mansar Mine,Maharashtra,Nagpur,21.396,79.255,36.8,10.5,16.1,0.25,850,240,6100000,393927.0,-93.54
+Tirodi Mine,Madhya Pradesh,Balaghat,21.681,79.742,41.0,7.8,12.0,0.17,1600,360,15300000,1391487.0,-90.91
+Ukwa Mine,Madhya Pradesh,Balaghat,21.968,80.472,40.2,8.0,12.5,0.16,1350,300,11200000,926964.0,-91.72
+Gumgaon Mine,Maharashtra,Nagpur,21.385,79.201,35.5,11.2,17.5,0.28,720,210,4800000,300705.0,-93.74
+Barjamda Mine,Odisha,Keonjhar,22.152,85.381,43.1,6.5,9.8,0.14,1950,410,19400000,1901825.0,-90.2
+Sandur Mine,Karnataka,Ballari,15.084,76.542,37.0,12.0,15.0,0.2,1800,350,13700000,1382451.0,-89.91
