@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css" />
+
+    <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        #map_eb810fd946001cd31c76e528dadfa8b2 {
+            position: relative;
+            width: 100.0%;
+            height: 100.0%;
+            left: 0.0%;
+            top: 0.0%;
+        }
+
+        .leaflet-container {
+            font-size: 1rem;
+        }
+    </style>
+
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <style>
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+    </style>
+
+    <script>
+        L_NO_TOUCH = false;
+        L_DISABLE_3D = false;
+    </script>
+
+
+</head>
+
+<body>
+
+
+    <div class="folium-map" id="map_eb810fd946001cd31c76e528dadfa8b2"></div>
+
+</body>
+<script>
+
+
+    var map_eb810fd946001cd31c76e528dadfa8b2 = L.map(
+        "map_eb810fd946001cd31c76e528dadfa8b2",
+        {
+            center: [21.25, 79.75],
+            crs: L.CRS.EPSG3857,
+            ...{
+                "zoom": 9,
+                "zoomControl": true,
+                "preferCanvas": false,
+            }
+
+        }
+    );
+
+
+
+
+
+    var tile_layer_a642033276939908a20270c88170be56 = L.tileLayer(
+        "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+            "minZoom": 0,
+            "maxZoom": 19,
+            "maxNativeZoom": 19,
+            "noWrap": false,
+            "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+            "subdomains": "abc",
+            "detectRetina": false,
+            "tms": false,
+            "opacity": 1,
+        }
+
+    );
+
+
+    tile_layer_a642033276939908a20270c88170be56.addTo(map_eb810fd946001cd31c76e528dadfa8b2);
+
+
+    var circle_marker_7b88f700a615170c2afa40101c9f8e12 = L.circleMarker(
+        [21.401226860575456, 79.95801698216131],
+        { "bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.36, "stroke": true, "weight": 3 }
+    ).addTo(map_eb810fd946001cd31c76e528dadfa8b2);
+
+
+    var popup_fc7d8e21156d9662456ec3bae1af3c8e = L.popup({
+        "maxWidth": 300,
+    });
+
+
+
+    var html_64034ac4b0f7dbf368cb6b7644b19893 = $(`<div id="html_64034ac4b0f7dbf368cb6b7644b19893" style="width: 100.0%; height: 100.0%;">     <b>Candidate Zone 8</b><br><br>      <b>Area:</b> 12.24 hectares<br>      <b>Pixels:</b> 136<br>      <b>Latitude:</b> 21.401227<br>      <b>Longitude:</b> 79.958017<br><br>      <b>Mean MNI:</b> 0.1201<br>      <b>Mean NDVI:</b> -0.0681<br>      <b>Mean IOI:</b> 0.1150<br>      <b>Mean CMI:</b> 1.0562     </div>`)[0];
+    popup_fc7d8e21156d9662456ec3bae1af3c8e.setContent(html_64034ac4b0f7dbf368cb6b7644b19893);
+
+
+
+    circle_marker_7b88f700a615170c2afa40101c9f8e12.bindPopup(popup_fc7d8e21156d9662456ec3bae1af3c8e)
+        ;
+
+
+
+
+    circle_marker_7b88f700a615170c2afa40101c9f8e12.bindTooltip(
+        `<div>
+                     Candidate Zone 8
+                 </div>`,
+        {
+            "sticky": true,
+        }
+    );
+
+
+    var circle_marker_807bb12ba831c0181fb56dab2cc5e845 = L.circleMarker(
+        [21.131082678097385, 79.75589352122628],
+        { "bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3 }
+    ).addTo(map_eb810fd946001cd31c76e528dadfa8b2);
+
+
+    var popup_3af7bf5acd6027ad3ad228395dbc9a00 = L.popup({
+        "maxWidth": 300,
+    });
+
+
+
+    var html_bda9a8899fd33d539f8c3099026c7aca = $(`<div id="html_bda9a8899fd33d539f8c3099026c7aca" style="width: 100.0%; height: 100.0%;">     <b>Candidate Zone 16</b><br><br>      <b>Area:</b> 1.98 hectares<br>      <b>Pixels:</b> 22<br>      <b>Latitude:</b> 21.131083<br>      <b>Longitude:</b> 79.755894<br><br>      <b>Mean MNI:</b> 0.1846<br>      <b>Mean NDVI:</b> 0.0731<br>      <b>Mean IOI:</b> 0.1325<br>      <b>Mean CMI:</b> 1.1050     </div>`)[0];
+    popup_3af7bf5acd6027ad3ad228395dbc9a00.setContent(html_bda9a8899fd33d539f8c3099026c7aca);
+
+
+
+    circle_marker_807bb12ba831c0181fb56dab2cc5e845.bindPopup(popup_3af7bf5acd6027ad3ad228395dbc9a00)
+        ;
+
+
+
+
+    circle_marker_807bb12ba831c0181fb56dab2cc5e845.bindTooltip(
+        `<div>
+                     Candidate Zone 16
+                 </div>`,
+        {
+            "sticky": true,
+        }
+    );
+
+
+    var circle_marker_c9fd1a72009e926e4484d29881533ac5 = L.circleMarker(
+        [21.04418292411269, 79.86882400219397],
+        { "bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3 }
+    ).addTo(map_eb810fd946001cd31c76e528dadfa8b2);
+
+
+    var popup_20289a4dd5150aa6eaf36379a60ff71a = L.popup({
+        "maxWidth": 300,
+    });
+
+
+
+    var html_096e33430edfa4ca032b9fd60d31b923 = $(`<div id="html_096e33430edfa4ca032b9fd60d31b923" style="width: 100.0%; height: 100.0%;">     <b>Candidate Zone 21</b><br><br>      <b>Area:</b> 0.99 hectares<br>      <b>Pixels:</b> 11<br>      <b>Latitude:</b> 21.044183<br>      <b>Longitude:</b> 79.868824<br><br>      <b>Mean MNI:</b> 0.1623<br>      <b>Mean NDVI:</b> -0.0579<br>      <b>Mean IOI:</b> 0.2535<br>      <b>Mean CMI:</b> 1.1180     </div>`)[0];
+    popup_20289a4dd5150aa6eaf36379a60ff71a.setContent(html_096e33430edfa4ca032b9fd60d31b923);
+
+
+
+    circle_marker_c9fd1a72009e926e4484d29881533ac5.bindPopup(popup_20289a4dd5150aa6eaf36379a60ff71a)
+        ;
+
+
+
+
+    circle_marker_c9fd1a72009e926e4484d29881533ac5.bindTooltip(
+        `<div>
+                     Candidate Zone 21
+                 </div>`,
+        {
+            "sticky": true,
+        }
+    );
+
+
+    var circle_marker_ccf472e84376c3a2fc03a6482b24d763 = L.circleMarker(
+        [21.389973876379592, 79.9765066886019],
+        { "bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3 }
+    ).addTo(map_eb810fd946001cd31c76e528dadfa8b2);
+
+
+    var popup_d336a6a7c1d2a82aa2c6cd341e3fff69 = L.popup({
+        "maxWidth": 300,
+    });
+
+
+
+    var html_e9423adeb071bd751702c394e40262d5 = $(`<div id="html_e9423adeb071bd751702c394e40262d5" style="width: 100.0%; height: 100.0%;">     <b>Candidate Zone 10</b><br><br>      <b>Area:</b> 0.90 hectares<br>      <b>Pixels:</b> 10<br>      <b>Latitude:</b> 21.389974<br>      <b>Longitude:</b> 79.976507<br><br>      <b>Mean MNI:</b> 0.1550<br>      <b>Mean NDVI:</b> 0.0199<br>      <b>Mean IOI:</b> 0.1464<br>      <b>Mean CMI:</b> 1.1024     </div>`)[0];
+    popup_d336a6a7c1d2a82aa2c6cd341e3fff69.setContent(html_e9423adeb071bd751702c394e40262d5);
+
+
+
+    circle_marker_ccf472e84376c3a2fc03a6482b24d763.bindPopup(popup_d336a6a7c1d2a82aa2c6cd341e3fff69)
+        ;
+
+
+
+
+    circle_marker_ccf472e84376c3a2fc03a6482b24d763.bindTooltip(
+        `<div>
+                     Candidate Zone 10
+                 </div>`,
+        {
+            "sticky": true,
+        }
+    );
+
+
+    var circle_marker_2e03382528da1dc2e95dddbc096274ec = L.circleMarker(
+        [21.401400446793595, 79.9618731326236],
+        { "bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3 }
+    ).addTo(map_eb810fd946001cd31c76e528dadfa8b2);
+
+
+    var popup_fb9d2a512e088a4502367fab83012cd2 = L.popup({
+        "maxWidth": 300,
+    });
+
+
+
+    var html_d2f1eda8409f926ec5b93a3fc4d11870 = $(`<div id="html_d2f1eda8409f926ec5b93a3fc4d11870" style="width: 100.0%; height: 100.0%;">     <b>Candidate Zone 9</b><br><br>      <b>Area:</b> 0.45 hectares<br>      <b>Pixels:</b> 5<br>      <b>Latitude:</b> 21.401400<br>      <b>Longitude:</b> 79.961873<br><br>      <b>Mean MNI:</b> 0.1067<br>      <b>Mean NDVI:</b> -0.0556<br>      <b>Mean IOI:</b> 0.1109<br>      <b>Mean CMI:</b> 1.0696     </div>`)[0];
+    popup_fb9d2a512e088a4502367fab83012cd2.setContent(html_d2f1eda8409f926ec5b93a3fc4d11870);
+
+
+
+    circle_marker_2e03382528da1dc2e95dddbc096274ec.bindPopup(popup_fb9d2a512e088a4502367fab83012cd2)
+        ;
+
+
+
+
+    circle_marker_2e03382528da1dc2e95dddbc096274ec.bindTooltip(
+        `<div>
+                     Candidate Zone 9
+                 </div>`,
+        {
+            "sticky": true,
+        }
+    );
+
+
+    var circle_marker_105c7dda798e302c82f29402b100791e = L.circleMarker(
+        [21.01795007619076, 79.9408525549752],
+        { "bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3 }
+    ).addTo(map_eb810fd946001cd31c76e528dadfa8b2);
+
+
+    var popup_5c61703ea5e4cb279e196b582549ea56 = L.popup({
+        "maxWidth": 300,
+    });
+
+
+
+    var html_db48378d6e39e5f337707dd9b7dac33b = $(`<div id="html_db48378d6e39e5f337707dd9b7dac33b" style="width: 100.0%; height: 100.0%;">     <b>Candidate Zone 23</b><br><br>      <b>Area:</b> 0.36 hectares<br>      <b>Pixels:</b> 4<br>      <b>Latitude:</b> 21.017950<br>      <b>Longitude:</b> 79.940853<br><br>      <b>Mean MNI:</b> 0.1118<br>      <b>Mean NDVI:</b> 0.0664<br>      <b>Mean IOI:</b> 0.1034<br>      <b>Mean CMI:</b> 1.1230     </div>`)[0];
+    popup_5c61703ea5e4cb279e196b582549ea56.setContent(html_db48378d6e39e5f337707dd9b7dac33b);
+
+
+
+    circle_marker_105c7dda798e302c82f29402b100791e.bindPopup(popup_5c61703ea5e4cb279e196b582549ea56)
+        ;
+
+
+
+
+    circle_marker_105c7dda798e302c82f29402b100791e.bindTooltip(
+        `<div>
+                     Candidate Zone 23
+                 </div>`,
+        {
+            "sticky": true,
+        }
+    );
+
+
+    var circle_marker_34c4f67c309fc0e27551f70a857e40ef = L.circleMarker(
+        [21.486264291684364, 79.96914948642495],
+        { "bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3 }
+    ).addTo(map_eb810fd946001cd31c76e528dadfa8b2);
+
+
+    var popup_16772a7fa7853df403aed5bae7346c01 = L.popup({
+        "maxWidth": 300,
+    });
+
+
+
+    var html_e62a6f1f0da2e84d07c30734336b6201 = $(`<div id="html_e62a6f1f0da2e84d07c30734336b6201" style="width: 100.0%; height: 100.0%;">     <b>Candidate Zone 2</b><br><br>      <b>Area:</b> 0.36 hectares<br>      <b>Pixels:</b> 4<br>      <b>Latitude:</b> 21.486264<br>      <b>Longitude:</b> 79.969149<br><br>      <b>Mean MNI:</b> 0.1066<br>      <b>Mean NDVI:</b> -0.0439<br>      <b>Mean IOI:</b> 0.1240<br>      <b>Mean CMI:</b> 1.0970     </div>`)[0];
+    popup_16772a7fa7853df403aed5bae7346c01.setContent(html_e62a6f1f0da2e84d07c30734336b6201);
+
+
+
+    circle_marker_34c4f67c309fc0e27551f70a857e40ef.bindPopup(popup_16772a7fa7853df403aed5bae7346c01)
+        ;
+
+
+
+
+    circle_marker_34c4f67c309fc0e27551f70a857e40ef.bindTooltip(
+        `<div>
+                     Candidate Zone 2
+                 </div>`,
+        {
+            "sticky": true,
+        }
+    );
+
+
+    var circle_marker_9db1446f7cdf1268c30a998f6e74da63 = L.circleMarker(
+        [21.05269241980408, 79.77879647772004],
+        { "bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3 }
+    ).addTo(map_eb810fd946001cd31c76e528dadfa8b2);
+
+
+    var popup_d96f41af558626ab4756caeaf801ce59 = L.popup({
+        "maxWidth": 300,
+    });
+
+
+
+    var html_fffc3df34fb3d0e4ea9390fbd47428e3 = $(`<div id="html_fffc3df34fb3d0e4ea9390fbd47428e3" style="width: 100.0%; height: 100.0%;">     <b>Candidate Zone 20</b><br><br>      <b>Area:</b> 0.27 hectares<br>      <b>Pixels:</b> 3<br>      <b>Latitude:</b> 21.052692<br>      <b>Longitude:</b> 79.778796<br><br>      <b>Mean MNI:</b> 0.1429<br>      <b>Mean NDVI:</b> 0.0073<br>      <b>Mean IOI:</b> 0.1514<br>      <b>Mean CMI:</b> 1.0912     </div>`)[0];
+    popup_d96f41af558626ab4756caeaf801ce59.setContent(html_fffc3df34fb3d0e4ea9390fbd47428e3);
+
+
+
+    circle_marker_9db1446f7cdf1268c30a998f6e74da63.bindPopup(popup_d96f41af558626ab4756caeaf801ce59)
+        ;
+
+
+
+
+    circle_marker_9db1446f7cdf1268c30a998f6e74da63.bindTooltip(
+        `<div>
+                     Candidate Zone 20
+                 </div>`,
+        {
+            "sticky": true,
+        }
+    );
+
+
+    var circle_marker_c781562f04b3e41082c5362713d68339 = L.circleMarker(
+        [21.485770218278105, 79.9701376332375],
+        { "bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3 }
+    ).addTo(map_eb810fd946001cd31c76e528dadfa8b2);
+
+
+    var popup_656a321783b2611d9117762be8e3e2a4 = L.popup({
+        "maxWidth": 300,
+    });
+
+
+
+    var html_29eba7b3c754054fc3e522230b01725e = $(`<div id="html_29eba7b3c754054fc3e522230b01725e" style="width: 100.0%; height: 100.0%;">     <b>Candidate Zone 3</b><br><br>      <b>Area:</b> 0.27 hectares<br>      <b>Pixels:</b> 3<br>      <b>Latitude:</b> 21.485770<br>      <b>Longitude:</b> 79.970138<br><br>      <b>Mean MNI:</b> 0.1114<br>      <b>Mean NDVI:</b> -0.0749<br>      <b>Mean IOI:</b> 0.1519<br>      <b>Mean CMI:</b> 1.0927     </div>`)[0];
+    popup_656a321783b2611d9117762be8e3e2a4.setContent(html_29eba7b3c754054fc3e522230b01725e);
+
+
+
+    circle_marker_c781562f04b3e41082c5362713d68339.bindPopup(popup_656a321783b2611d9117762be8e3e2a4)
+        ;
+
+
+
+
+    circle_marker_c781562f04b3e41082c5362713d68339.bindTooltip(
+        `<div>
+                     Candidate Zone 3
+                 </div>`,
+        {
+            "sticky": true,
+        }
+    );
+
+
+    var circle_marker_bccd38360eb841138a530912118fa145 = L.circleMarker(
+        [21.06832310574776, 79.74564864373603],
+        { "bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3 }
+    ).addTo(map_eb810fd946001cd31c76e528dadfa8b2);
+
+
+    var popup_f9ff9f02cf0ccbaf348a586dd4da3c8e = L.popup({
+        "maxWidth": 300,
+    });
+
+
+
+    var html_95496f0e60047404d82535acd4f5e320 = $(`<div id="html_95496f0e60047404d82535acd4f5e320" style="width: 100.0%; height: 100.0%;">     <b>Candidate Zone 17</b><br><br>      <b>Area:</b> 0.27 hectares<br>      <b>Pixels:</b> 3<br>      <b>Latitude:</b> 21.068323<br>      <b>Longitude:</b> 79.745649<br><br>      <b>Mean MNI:</b> 0.1204<br>      <b>Mean NDVI:</b> -0.0093<br>      <b>Mean IOI:</b> 0.1068<br>      <b>Mean CMI:</b> 1.0758     </div>`)[0];
+    popup_f9ff9f02cf0ccbaf348a586dd4da3c8e.setContent(html_95496f0e60047404d82535acd4f5e320);
+
+
+
+    circle_marker_bccd38360eb841138a530912118fa145.bindPopup(popup_f9ff9f02cf0ccbaf348a586dd4da3c8e)
+        ;
+
+
+
+
+    circle_marker_bccd38360eb841138a530912118fa145.bindTooltip(
+        `<div>
+                     Candidate Zone 17
+                 </div>`,
+        {
+            "sticky": true,
+        }
+    );
+
+
+    var circle_marker_c3608b08c47f687cdf36536426959562 = L.circleMarker(
+        [21.36198237212643, 79.96609521445896],
+        { "bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3 }
+    ).addTo(map_eb810fd946001cd31c76e528dadfa8b2);
+
+
+    var popup_e5d60a567fa190ac4005586e3cdf20b9 = L.popup({
+        "maxWidth": 300,
+    });
+
+
+
+    var html_01ab8cef65c84b1e159e0f13e538465e = $(`<div id="html_01ab8cef65c84b1e159e0f13e538465e" style="width: 100.0%; height: 100.0%;">     <b>Candidate Zone 13</b><br><br>      <b>Area:</b> 0.27 hectares<br>      <b>Pixels:</b> 3<br>      <b>Latitude:</b> 21.361982<br>      <b>Longitude:</b> 79.966095<br><br>      <b>Mean MNI:</b> 0.1045<br>      <b>Mean NDVI:</b> 0.0143<br>      <b>Mean IOI:</b> 0.1042<br>      <b>Mean CMI:</b> 1.0854     </div>`)[0];
+    popup_e5d60a567fa190ac4005586e3cdf20b9.setContent(html_01ab8cef65c84b1e159e0f13e538465e);
+
+
+
+    circle_marker_c3608b08c47f687cdf36536426959562.bindPopup(popup_e5d60a567fa190ac4005586e3cdf20b9)
+        ;
+
+
+
+
+    circle_marker_c3608b08c47f687cdf36536426959562.bindTooltip(
+        `<div>
+                     Candidate Zone 13
+                 </div>`,
+        {
+            "sticky": true,
+        }
+    );
+
+
+    var marker_b66614c2284588ed649da233319213ec = L.marker(
+        [21.25, 79.75],
+        {
+        }
+    ).addTo(map_eb810fd946001cd31c76e528dadfa8b2);
+
+
+    var popup_7e2e8a0e0565a82852f902ae00a9df87 = L.popup({
+        "maxWidth": "100%",
+    });
+
+
+
+    var html_21928a4e5a89ea282c4b00f401753927 = $(`<div id="html_21928a4e5a89ea282c4b00f401753927" style="width: 100.0%; height: 100.0%;">Bhandara Study Area</div>`)[0];
+    popup_7e2e8a0e0565a82852f902ae00a9df87.setContent(html_21928a4e5a89ea282c4b00f401753927);
+
+
+
+    marker_b66614c2284588ed649da233319213ec.bindPopup(popup_7e2e8a0e0565a82852f902ae00a9df87)
+        ;
+
+
+
+
+    marker_b66614c2284588ed649da233319213ec.bindTooltip(
+        `<div>
+                     Bhandara Study Area
+                 </div>`,
+        {
+            "sticky": true,
+        }
+    );
+
+</script>
+
+</html>

@@ -10,7 +10,7 @@ const ExplorationMap = () => {
   const [mines, setMines] = useState([]);
   const [zones, setZones] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('htmlMap');
+  const [activeTab, setActiveTab] = useState('candidateZones');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -71,6 +71,16 @@ const ExplorationMap = () => {
             <div className="flex items-center justify-between px-1 py-1">
               <div className="flex items-center space-x-2">
                 <button
+                  onClick={() => setActiveTab('candidateZones')}
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium transition-all ${
+                    activeTab === 'candidateZones'
+                      ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm'
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
+                  }`}
+                >
+                  🎯 Landsat ML Candidate Map
+                </button>
+                <button
                   onClick={() => setActiveTab('htmlMap')}
                   className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium transition-all ${
                     activeTab === 'htmlMap'
@@ -78,7 +88,7 @@ const ExplorationMap = () => {
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
                   }`}
                 >
-                  🗺️ Bhandara GIS Spatial Map
+                  🗺️ Bhandara GIS Overview
                 </button>
                 <button
                   onClick={() => setActiveTab('reactMap')}
@@ -97,7 +107,14 @@ const ExplorationMap = () => {
             </div>
 
             <div className="h-[650px] w-full rounded-lg overflow-hidden border border-slate-800/80 bg-slate-950 shadow-inner">
-              {activeTab === 'htmlMap' ? (
+              {activeTab === 'candidateZones' ? (
+                <iframe
+                  src="/candidate_zones_map.html"
+                  title="Manganese Prospectivity - Bhandara Real Landsat ML Candidate Zones Map"
+                  className="w-full h-full border-0"
+                  allowFullScreen
+                />
+              ) : activeTab === 'htmlMap' ? (
                 <iframe
                   src="/bhandara_manganese_map.html"
                   title="Bhandara Manganese Exploration Interactive Map"
