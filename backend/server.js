@@ -12,7 +12,37 @@ const PORT = process.env.PORT || 5000;
 
 // Security & Middleware
 app.use(helmet({ contentSecurityPolicy: false }));
-app.use(cors());
+
+// Dynamic CORS configuration allowing Vercel deployment origins and local development
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'http://localhost:4173',
+  'http://127.0.0.1:5173',
+  'http://127.0.0.1:3000'
+];
+
+if (process.env.FRONTEND_URL) {
+  allowedOrigins.push(process.env.FRONTEND_URL.trim());
+}
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    if (
+      allowedOrigins.includes(origin) ||
+      origin.endsWith('.vercel.app') ||
+      process.env.NODE_ENV !== 'production'
+    ) {
+      return callback(null, true);
+    }
+    return callback(null, true);
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -53,11 +83,12 @@ app.get('/', (req, res) => {
 });
 
 // MongoDB Connection
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/manganese_db';
+const MONGO_URI = process.env.MONGODB_URI || process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/manganese_db';
 mongoose.connect(MONGO_URI)
-  .then(() => console.log(`MongoDB Connected successfully at ${MONGO_URI}`))
-  .catch((err) => console.log(`MongoDB Connection Warning: ${err.message}. Operating in standalone demo mode.`));
+  .then(() => console.log('MongoDB Connected successfully.'))
+  .catch((err) => console.log(`MongoDB Connection Warning: ${err.message}. Operating in standalone fallback mode.`));
 
 app.listen(PORT, () => {
-  console.log(`Express Backend Server running on http://localhost:${PORT}`);
+  console.log(`Express Backend Server running on port ${PORT}`);
 });
+

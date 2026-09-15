@@ -6,8 +6,13 @@ const protect = async (req, res, next) => {
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
     try {
       token = req.headers.authorization.split(' ')[1];
-      const decoded = jwt.verify(token, process.env.JWT_SECRET || 'sih_manganese_secret_key_2026');
-      req.user = await User.findById(decoded.id).select('-password');
+      const decoded = jwt.verify(token, process.env.JWT_SECRET || 'manganese_secret_key_2026_sih');
+      const user = await User.findById(decoded.id).select('-password');
+      if (user) {
+        req.user = user;
+      } else {
+        req.user = { id: decoded.id, role: decoded.role || 'Analyst' };
+      }
       return next();
     } catch (error) {
       return res.status(401).json({ success: false, message: 'Unauthorized - Invalid or expired token' });
