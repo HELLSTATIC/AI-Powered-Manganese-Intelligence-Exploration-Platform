@@ -11,6 +11,11 @@ const generateToken = (user) => {
 exports.register = async (req, res) => {
   try {
     const { name, email, password, organization, role } = req.body;
+    
+    if (!name || !email || !password) {
+      return res.status(400).json({ success: false, message: 'Please provide full name, email and password' });
+    }
+
     let user = await User.findOne({ email });
     if (user) {
       return res.status(400).json({ success: false, message: 'User with this email already exists' });
@@ -34,7 +39,8 @@ exports.register = async (req, res) => {
       user: { id: user._id, name: user.name, email: user.email, role: user.role, organization: user.organization }
     });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    console.error('Registration Error:', error.message);
+    res.status(500).json({ success: false, message: error.message || 'Registration failed due to server error' });
   }
 };
 

@@ -34,13 +34,13 @@ app.use(cors({
       origin.endsWith('.vercel.app') ||
       process.env.NODE_ENV !== 'production'
     ) {
-      return callback(null, true);
+      return callback(null, origin);
     }
-    return callback(null, true);
+    return callback(null, origin);
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
 }));
 
 app.use(express.json());

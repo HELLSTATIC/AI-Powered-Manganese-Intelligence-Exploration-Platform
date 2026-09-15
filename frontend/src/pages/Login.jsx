@@ -25,7 +25,7 @@ const Login = () => {
         navigate('/dashboard');
       }
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed. Try demo login or register a new account.');
+      setError(err.response?.data?.message || err.message || 'Login failed. Try demo login or register a new account.');
     } finally {
       setLoading(false);
     }
