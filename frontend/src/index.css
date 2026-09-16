@@ -1,70 +1,249 @@
+```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* =========================================================
+   GLOBAL / RESPONSIVE FOUNDATION
+   ========================================================= */
+
 @layer base {
+  :root {
+    color-scheme: dark;
+    --app-bg: #0b0f19;
+    --panel-bg: rgba(15, 23, 42, 0.75);
+    --card-bg: rgba(17, 24, 39, 0.7);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-soft: rgba(255, 255, 255, 0.06);
+    --accent: #10b981;
+    --accent-cyan: #06b6d4;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
   body {
-    @apply bg-[#0b0f19] text-slate-100 font-sans;
-    background-image: 
-      radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.05) 0px, transparent 50%);
+    margin: 0;
+    width: 100%;
+    min-width: 320px;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    @apply bg-[#0b0f19] text-slate-100 font-sans antialiased;
+
+    background-image:
+      radial-gradient(
+        at 0% 0%,
+        rgba(16, 185, 129, 0.05) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 100% 100%,
+        rgba(6, 182, 212, 0.05) 0px,
+        transparent 50%
+      );
+
+    background-attachment: fixed;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+  }
+
+  img {
+    height: auto;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ::selection {
+    background: rgba(16, 185, 129, 0.25);
+    color: #fff;
   }
 }
 
-/* Custom Scrollbar */
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: #0b0f19;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
-  border-radius: 4px;
+  border-radius: 999px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #334155;
 }
 
-/* Glassmorphism Panels */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1e293b #0b0f19;
+}
+
+/* =========================================================
+   GLASSMORPHISM
+   ========================================================= */
+
 .glass-panel {
-  background: rgba(15, 23, 42, 0.75);
+  background: var(--panel-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+  border-radius: 12px;
 }
 
 .glass-card {
-  background: rgba(17, 24, 39, 0.7);
+  background: var(--card-bg);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
 }
 
 .glass-card-hover {
-  transition: all 0.2s ease-in-out;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
 }
+
 .glass-card-hover:hover {
   border-color: rgba(16, 185, 129, 0.3);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px -6px rgba(16, 185, 129, 0.15);
 }
 
-/* Leaflet Container Overrides */
+/* =========================================================
+   SAFE AREA SUPPORT
+   For phones with notches / home indicators
+   ========================================================= */
+
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-left {
+  padding-left: env(safe-area-inset-left);
+}
+
+.safe-right {
+  padding-right: env(safe-area-inset-right);
+}
+
+/* =========================================================
+   APP LAYOUT HELPERS
+   ========================================================= */
+
+.app-shell {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-inline: 12px;
+}
+
+.responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.responsive-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* =========================================================
+   LEAFLET
+   ========================================================= */
+
 .leaflet-container {
   width: 100%;
   height: 100%;
+  min-height: 200px;
+
   background: #0b0f19 !important;
-  font-family: 'Inter', sans-serif;
+
+  font-family: "Inter", sans-serif;
+
   z-index: 1;
+
+  /* Better touch interaction */
+  touch-action: pan-x pan-y;
 }
+
+/* Keep Leaflet UI above map layers */
+.leaflet-control-container {
+  position: relative;
+  z-index: 10;
+}
+
+/* =========================================================
+   LEAFLET POPUPS
+   ========================================================= */
 
 .leaflet-popup-content-wrapper {
   background: #0f172a !important;
   color: #f8fafc !important;
+
   border: 1px solid #334155 !important;
-  border-radius: 8px !important;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 10px !important;
+
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.5),
+    0 8px 10px -6px rgba(0, 0, 0, 0.3) !important;
+
   padding: 0 !important;
 }
 
@@ -75,4 +254,321 @@
 .leaflet-popup-content {
   margin: 0 !important;
   line-height: 1.4 !important;
+  max-width: min(320px, calc(100vw - 48px));
+  word-wrap: break-word;
 }
+
+.leaflet-popup-close-button {
+  color: #94a3b8 !important;
+  font-size: 20px !important;
+  padding: 6px 8px !important;
+}
+
+.leaflet-popup-close-button:hover {
+  color: #f8fafc !important;
+}
+
+/* =========================================================
+   LEAFLET CONTROLS
+   ========================================================= */
+
+.leaflet-control-zoom {
+  border: 0 !important;
+}
+
+.leaflet-control-zoom a {
+  background: #0f172a !important;
+  color: #e2e8f0 !important;
+
+  border: 1px solid #334155 !important;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #1e293b !important;
+  color: #fff !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(15, 23, 42, 0.85) !important;
+  color: #64748b !important;
+
+  font-size: 10px !important;
+}
+
+.leaflet-control-attribution a {
+  color: #94a3b8 !important;
+}
+
+/* =========================================================
+   MOBILE — 0px to 639px
+   ========================================================= */
+
+@media (max-width: 639px) {
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    background-attachment: scroll;
+  }
+
+  .app-container {
+    padding-inline: 10px;
+  }
+
+  .glass-panel {
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .glass-card {
+    border-radius: 8px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  /* Prevent overly large popup on small screens */
+  .leaflet-popup-content {
+    max-width: calc(100vw - 56px);
+    font-size: 13px;
+  }
+
+  .leaflet-popup-content-wrapper {
+    border-radius: 8px !important;
+  }
+
+  /* Make map controls comfortable for touch */
+  .leaflet-control-zoom a {
+    width: 36px !important;
+    height: 36px !important;
+    line-height: 34px !important;
+  }
+
+  .leaflet-control-attribution {
+    font-size: 9px !important;
+  }
+
+  /*
+   * Useful when a sidebar becomes a bottom sheet on mobile.
+   */
+  .mobile-bottom-sheet {
+    width: 100%;
+    max-height: 70dvh;
+    overflow-y: auto;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .responsive-flex {
+    flex-direction: column;
+  }
+
+  .responsive-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   SMALL TABLETS — 640px+
+   ========================================================= */
+
+@media (min-width: 640px) {
+  .app-container {
+    padding-inline: 16px;
+  }
+
+  .responsive-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .responsive-flex {
+    flex-direction: row;
+  }
+}
+
+/* =========================================================
+   TABLETS — 768px+
+   ========================================================= */
+
+@media (min-width: 768px) {
+  .app-container {
+    padding-inline: 20px;
+  }
+
+  .glass-panel {
+    border-radius: 12px;
+  }
+
+  .glass-card {
+    border-radius: 10px;
+  }
+
+  .responsive-grid {
+    gap: 16px;
+  }
+}
+
+/* =========================================================
+   LAPTOPS — 1024px+
+   ========================================================= */
+
+@media (min-width: 1024px) {
+  .app-container {
+    padding-inline: 24px;
+  }
+
+  .responsive-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .glass-panel {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+/* =========================================================
+   DESKTOP — 1280px+
+   ========================================================= */
+
+@media (min-width: 1280px) {
+  .app-container {
+    padding-inline: 28px;
+  }
+
+  .responsive-grid {
+    gap: 20px;
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP — 1536px+
+   ========================================================= */
+
+@media (min-width: 1536px) {
+  .app-container {
+    padding-inline: 32px;
+  }
+
+  .responsive-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+/* =========================================================
+   ULTRA-WIDE — 1920px+
+   ========================================================= */
+
+@media (min-width: 1920px) {
+  .app-container {
+    max-width: 1920px;
+  }
+}
+
+/* =========================================================
+   TOUCH DEVICES
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+  /*
+   * Disable hover lift on touch devices.
+   * Prevents cards from getting "stuck" in hover state.
+   */
+  .glass-card-hover:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /*
+   * Comfortable minimum touch target.
+   */
+  button,
+  [role="button"] {
+    min-height: 40px;
+  }
+
+  .leaflet-control-zoom a {
+    width: 40px !important;
+    height: 40px !important;
+    line-height: 38px !important;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION / ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .glass-card-hover:hover {
+    transform: none;
+  }
+}
+
+/* =========================================================
+   LANDSCAPE PHONES
+   ========================================================= */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .mobile-bottom-sheet {
+    max-height: 85dvh;
+  }
+
+  .leaflet-popup-content {
+    max-height: 60dvh;
+    overflow-y: auto;
+  }
+}
+
+/* =========================================================
+   HIGH-DPI / RETINA
+   ========================================================= */
+
+@media (min-resolution: 2dppx) {
+  .glass-panel,
+  .glass-card {
+    border-width: 1px;
+  }
+}
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .glass-panel,
+  .glass-card {
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .leaflet-control-container {
+    display: none !important;
+  }
+}
+```
